@@ -1,0 +1,15 @@
+<h1></h1>
+
+{% load mptt_tags %}
+<ul>
+    {% recursetree filesystem %}
+    <li>
+        {{ node.name }}
+        {% if not node.is_leaf_node %}
+            <ul>
+                {{ children }}
+            </ul>
+        {% endif %}
+    </li>
+    {% endrecursetree %}
+</ul>
